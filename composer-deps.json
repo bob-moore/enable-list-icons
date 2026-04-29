@@ -1,0 +1,13 @@
+{
+    "name": "bmd/enable-list-icons-deps",
+    "description": "Scoped runtime dependencies for Enable List Icons.",
+    "type": "project",
+    "config": {
+        "platform": {
+            "php": "8.1"
+        }
+    },
+    "require": {
+        "bmd/github-wp-updater": "^0.1.3"
+    }
+}
