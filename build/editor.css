@@ -1,1 +1,74 @@
-.enable-list-icons-control-wrapper .components-base-control{width:100%}.enable-list-icons-control-wrapper .components-toggle-group-control:before{background-color:#000}.enable-list-icons-control-wrapper .components-toggle-group-control button.is-selected{color:#fff!important}.enable-list-icons-control-wrapper.unit-range-wrapper{display:grid;gap:16px;grid-template-columns:80px 1fr}.wp-block-list[class*=has-icon__]{list-style:none!important;padding-left:0}.wp-block-list[class*=has-icon__] li>div.rich-text:before{background-color:var(--wp-block-list--icon-color,currentcolor);content:"";display:inline-block;height:var(--wp-block-list--icon-size,1em);margin-right:var(--wp-block-list--icon-gap,.6em);-webkit-mask-image:var(--list-icon);mask-image:var(--list-icon);-webkit-mask-position:center;mask-position:center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100%;mask-size:100%;scale:1.25;transform:translateY(var(--wp-block-list--icon-vertical-offset,0));vertical-align:middle;width:var(--wp-block-list--icon-size,1em)}.wp-block-list[class*=has-icon__].has-icon-placement__outside li>div.rich-text{min-height:var(--wp-block-list--icon-size,1em);padding-left:calc(var(--wp-block-list--icon-size, 1em) + var(--wp-block-list--icon-gap, .6em));position:relative}.wp-block-list[class*=has-icon__].has-icon-placement__outside li>div.rich-text:before{left:0;margin-right:0;position:absolute;top:0}
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+.enable-list-icons-control-wrapper .components-base-control {
+  width: 100%;
+}
+.enable-list-icons-control-wrapper .components-toggle-group-control::before {
+  background-color: #000;
+}
+.enable-list-icons-control-wrapper .components-toggle-group-control button.is-selected {
+  color: #fff !important;
+}
+.enable-list-icons-control-wrapper.unit-range-wrapper {
+  align-items: normal;
+  flex-direction: column;
+}
+.enable-list-icons-control-wrapper.unit-range-wrapper .components-base-control__field,
+.enable-list-icons-control-wrapper.unit-range-wrapper .components-base-control {
+  margin: 0;
+}
+.enable-list-icons-control-wrapper.unit-range-wrapper .components-base-control__label {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+  padding: 0;
+}
+.enable-list-icons-control-wrapper.unit-range-wrapper .unit-range-wrapper__controls {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 16px;
+}
+
+.wp-block-list[class*=has-icon__] {
+  list-style: none !important;
+  padding-left: 0;
+}
+.wp-block-list[class*=has-icon__] li > div.rich-text::before {
+  content: "";
+  display: inline-block;
+  background-color: var(--wp-block-list--icon-color, currentcolor);
+  -webkit-mask-size: 100%;
+          mask-size: 100%;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  height: var(--wp-block-list--icon-size, 1em);
+  width: var(--wp-block-list--icon-size, 1em);
+  vertical-align: middle;
+  -webkit-mask-image: var(--list-icon);
+          mask-image: var(--list-icon);
+  scale: 1.25;
+  margin-right: var(--wp-block-list--icon-gap, 0.6em);
+  transform: translateY(var(--wp-block-list--icon-vertical-offset, 0));
+}
+.wp-block-list[class*=has-icon__].has-icon-placement__outside li {
+  padding-left: 0;
+}
+.wp-block-list[class*=has-icon__].has-icon-placement__outside li > div.rich-text {
+  position: relative;
+  min-height: var(--wp-block-list--icon-size, 1em);
+  padding-left: calc(var(--wp-block-list--icon-size, 1em) + var(--wp-block-list--icon-gap, 0.6em));
+}
+.wp-block-list[class*=has-icon__].has-icon-placement__outside li > div.rich-text::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-right: 0;
+}
+
+/*# sourceMappingURL=editor.css.map*/

@@ -58,22 +58,30 @@ export const IconGapControl: FC< IconGapControlProps > = ( {
 
 	return (
 		<PanelRow className="enable-list-icons-control-wrapper unit-range-wrapper">
-			<UnitControl
-				label={ __( 'Icon gap', 'enable-list-icons' ) }
-				value={ value }
-				onChange={ handleUnitControlChange }
-				units={ ICON_GAP_UNITS }
-			/>
-			<RangeControl
-				label={ __( 'Icon gap', 'enable-list-icons' ) }
-				value={ sliderValue }
-				onChange={ handleSliderChange }
-				min={ iconGapRange.min }
-				max={ iconGapRange.max }
-				step={ iconGapRange.step }
-				withInputField={ false }
-				hideLabelFromVision
-			/>
+			<span className="components-base-control__label">
+				{ __( 'Icon gap', 'enable-list-icons' ) }
+			</span>
+			<div className="unit-range-wrapper__controls">
+				<UnitControl
+					label={ __( 'Icon gap', 'enable-list-icons' ) }
+					value={ value }
+					onChange={ handleUnitControlChange }
+					units={ ICON_GAP_UNITS }
+					__next40pxDefaultSize
+					hideLabelFromVision
+				/>
+				<RangeControl
+					label={ __( 'Icon gap', 'enable-list-icons' ) }
+					value={ sliderValue }
+					onChange={ handleSliderChange }
+					min={ iconGapRange.min }
+					max={ iconGapRange.max }
+					step={ iconGapRange.step }
+					withInputField={ false }
+					hideLabelFromVision
+					__next40pxDefaultSize
+				/>
+			</div>
 		</PanelRow>
 	);
 };

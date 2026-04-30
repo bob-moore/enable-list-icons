@@ -1,6 +1,6 @@
 # Enable List Icons
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue)
+![Version](https://img.shields.io/badge/version-0.2.0-blue)
 ![WordPress](https://img.shields.io/badge/WordPress-6.7%2B-3858e9?logo=wordpress&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php&logoColor=white)
 ![License](https://img.shields.io/badge/license-GPL--2.0--or--later-green)
@@ -113,6 +113,15 @@ Icon appears in reserved space to the left of the text.
 - Useful for larger icons that shouldn't wrap text
 
 ## Changelog
+
+### 0.2.0
+
+- Add toggle-to-deselect behavior for icon picker — clicking the active icon now clears the selection
+- Add dedicated "Icon Styles" panel grouping placement, size, gap, and vertical offset controls
+- Improve unit/range control layout with a shared label and stacked input + slider
+- Fix null handling for icon attributes throughout (`IconValue` properties now nullable)
+- Fix icon outside placement removing excess left padding on list items
+- Remove unused `IconPositionControl` component
 
 ### 0.1.0
 

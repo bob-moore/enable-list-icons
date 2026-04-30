@@ -6,7 +6,7 @@ export const BlockList = createHigherOrderComponent( ( BlockListBlock ) => {
 	return ( props: BlockListProps ) => {
 		const { name, attributes } = props;
 
-		if ( 'core/list' !== name || ! attributes?.icon ) {
+		if ( 'core/list' !== name || ! attributes?.icon?.name ) {
 			return <BlockListBlock { ...props } />;
 		}
 
@@ -18,6 +18,10 @@ export const BlockList = createHigherOrderComponent( ( BlockListBlock ) => {
 			iconVerticalOffset,
 			iconColor,
 		} = attributes;
+
+		if ( ! icon?.src?.length ) {
+			return <BlockListBlock { ...props } />;
+		}
 
 		const className = [
 			props?.className,

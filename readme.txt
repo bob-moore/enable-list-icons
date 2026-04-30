@@ -4,7 +4,7 @@ Tags: list, icons, gutenberg, block, custom-icon
 Requires at least: 6.7
 Tested up to: 7.0
 Requires PHP: 8.2
-Stable tag: 0.1.0
+Stable tag: 0.2.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -123,6 +123,15 @@ Enable List Icons uses standard WordPress block rendering and CSS. It should wor
 Yes. It includes a GitHub updater integration so WordPress can detect updates from this repository.
 
 == Changelog ==
+
+= 0.2.0 =
+
+* Add toggle-to-deselect behavior for icon picker — clicking the active icon now clears the selection
+* Add dedicated "Icon Styles" panel grouping placement, size, gap, and vertical offset controls
+* Improve unit/range control layout with a shared label and stacked input + slider
+* Fix null handling for icon attributes throughout (IconValue properties now nullable)
+* Fix icon outside placement removing excess left padding on list items
+* Remove unused IconPositionControl component
 
 = 0.1.0 =
 

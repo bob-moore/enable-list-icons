@@ -57,23 +57,30 @@ export const IconVerticalOffsetControl: FC<
 
 	return (
 		<PanelRow className="enable-list-icons-control-wrapper unit-range-wrapper">
-			<UnitControl
-				label={ __( 'Vertical offset', 'enable-list-icons' ) }
-				value={ value }
-				onChange={ handleUnitControlChange }
-				units={ ICON_OFFSET_UNITS }
-				__next40pxDefaultSize
-			/>
-			<RangeControl
-				label={ __( 'Vertical offset', 'enable-list-icons' ) }
-				value={ sliderValue }
-				onChange={ handleSliderChange }
-				min={ iconOffsetRange.min }
-				max={ iconOffsetRange.max }
-				step={ iconOffsetRange.step }
-				withInputField={ false }
-				hideLabelFromVision
-			/>
+			<span className="components-base-control__label">
+				{ __( 'Vertical offset', 'enable-list-icons' ) }
+			</span>
+			<div className="unit-range-wrapper__controls">
+				<UnitControl
+					label={ __( 'Vertical offset', 'enable-list-icons' ) }
+					value={ value }
+					onChange={ handleUnitControlChange }
+					units={ ICON_OFFSET_UNITS }
+					__next40pxDefaultSize
+					hideLabelFromVision
+				/>
+				<RangeControl
+					label={ __( 'Vertical offset', 'enable-list-icons' ) }
+					value={ sliderValue }
+					onChange={ handleSliderChange }
+					min={ iconOffsetRange.min }
+					max={ iconOffsetRange.max }
+					step={ iconOffsetRange.step }
+					withInputField={ false }
+					hideLabelFromVision
+					__next40pxDefaultSize
+				/>
+			</div>
 		</PanelRow>
 	);
 };

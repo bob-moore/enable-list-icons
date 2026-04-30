@@ -1,1 +1,39 @@
-:root{--wp-block-list--icon-size:1em}.wp-block-list[class*=has-icon__]{list-style:none;padding-left:0}.wp-block-list[class*=has-icon__] li>.wp-block-list__item-icon{color:var(--wp-block-list--icon-color,currentcolor);display:inline-flex;line-height:0;margin-right:var(--wp-block-list--icon-gap,.6em);transform:translateY(var(--wp-block-list--icon-vertical-offset,0));vertical-align:middle}.wp-block-list[class*=has-icon__] li>.wp-block-list__item-icon svg{display:block;fill:currentcolor;height:var(--wp-block-list--icon-size);scale:1.25;width:var(--wp-block-list--icon-size)}.wp-block-list[class*=has-icon__].has-icon-placement__outside li{min-height:var(--wp-block-list--icon-size);padding-left:calc(var(--wp-block-list--icon-size) + var(--wp-block-list--icon-gap, .6em));position:relative}.wp-block-list[class*=has-icon__].has-icon-placement__outside li>.wp-block-list__item-icon{left:0;margin-right:0;position:absolute;top:0}
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/index.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+:root {
+  --wp-block-list--icon-size: 1em;
+}
+
+.wp-block-list[class*=has-icon__] {
+  list-style: none;
+  padding-left: 0;
+}
+.wp-block-list[class*=has-icon__] li > .wp-block-list__item-icon {
+  display: inline-flex;
+  color: var(--wp-block-list--icon-color, currentcolor);
+  line-height: 0;
+  vertical-align: middle;
+  margin-right: var(--wp-block-list--icon-gap, 0.6em);
+  transform: translateY(var(--wp-block-list--icon-vertical-offset, 0));
+}
+.wp-block-list[class*=has-icon__] li > .wp-block-list__item-icon svg {
+  display: block;
+  height: var(--wp-block-list--icon-size);
+  width: var(--wp-block-list--icon-size);
+  fill: currentcolor;
+  scale: 1.25;
+}
+.wp-block-list[class*=has-icon__].has-icon-placement__outside li {
+  position: relative;
+  min-height: var(--wp-block-list--icon-size);
+  padding-left: calc(var(--wp-block-list--icon-size) + var(--wp-block-list--icon-gap, 0.6em));
+}
+.wp-block-list[class*=has-icon__].has-icon-placement__outside li > .wp-block-list__item-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-right: 0;
+}
+
+/*# sourceMappingURL=style.css.map*/
