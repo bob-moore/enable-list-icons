@@ -5,6 +5,21 @@ export type IconValue = {
 	src: string | null;
 } | null;
 
+export type IconEntry = {
+	name: string;
+	label: string;
+	source: string;
+};
+
+export type IconFamily = {
+	label: string;
+	url: string;
+};
+
+export type EnableListIconsSettings = {
+	iconFamilies?: Record< string, IconFamily >;
+};
+
 export type ListAttributes = {
 	icon: IconValue;
 	iconSize: string;
@@ -38,3 +53,9 @@ export type BlockListProps = BlockTypeObject & {
 	wrapperProps?: WrapperProps;
 	className?: string;
 };
+
+declare global {
+	interface Window {
+		enableListIcons?: EnableListIconsSettings;
+	}
+}

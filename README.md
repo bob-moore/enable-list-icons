@@ -1,140 +1,134 @@
 # Enable List Icons
 
-![Version](https://img.shields.io/badge/version-0.2.0-blue)
-![WordPress](https://img.shields.io/badge/WordPress-6.7%2B-3858e9?logo=wordpress&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php&logoColor=white)
-![License](https://img.shields.io/badge/license-GPL--2.0--or--later-green)
-![Lint and Build](https://github.com/bob-moore/enable-list-icons/actions/workflows/lint-build.yml/badge.svg)
+![Enable List Icons](assets/banner-1544x500.jpg)
 
-The WordPress list block is great — but it doesn't give you control over list markers.
+[![WordPress](https://img.shields.io/badge/WordPress-6.9%2B-3858e9?logo=wordpress&logoColor=fff)](https://wordpress.org/)
+[![PHP](https://img.shields.io/badge/PHP-8.2%2B-777bb4?logo=php&logoColor=fff)](https://www.php.net/)
+[![Latest Release](https://img.shields.io/github/v/release/bob-moore/enable-list-icons?label=release)](https://github.com/bob-moore/enable-list-icons/releases/latest)
+[![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)](https://www.gnu.org/licenses/gpl-2.0.html)
 
-This plugin changes that. Add custom icons to your lists, position them inside or outside the text, adjust their color, size, spacing, and vertical offset.
+[![Lint CSS](https://github.com/bob-moore/enable-list-icons/actions/workflows/lint-css.yml/badge.svg)](https://github.com/bob-moore/enable-list-icons/actions/workflows/lint-css.yml)
+[![Lint JS](https://github.com/bob-moore/enable-list-icons/actions/workflows/lint-js.yml/badge.svg)](https://github.com/bob-moore/enable-list-icons/actions/workflows/lint-js.yml)
+[![Lint PHP](https://github.com/bob-moore/enable-list-icons/actions/workflows/lint-php.yml/badge.svg)](https://github.com/bob-moore/enable-list-icons/actions/workflows/lint-php.yml)
 
-## What it does
+Want to give it a test drive? Try it in the WP Playground: [![Try it in the WordPress Playground](https://img.shields.io/badge/WP_Playground-v0.3.0-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/bob-moore/enable-list-icons/main/_playground/blueprint-github.json)
 
-Enable List Icons extends the core `wp:list` block with icon controls. For each list item, you can:
-
-- Choose an icon from built-in icon sets (WordPress icons, Material Design Icons, or custom SVG)
-- Position the icon inside (inline before text) or outside (aligned beside the text)
-- Adjust icon color, size, gap from text, and vertical offset
-- See your changes live in the editor
-
-Instead of plain bullet points or numbers, your lists get personality.
-
-## Why use it
-
-- **Visual hierarchy** — Icons help readers scan lists faster
-- **Brand consistency** — Use your own icon sets, not just default markers
-- **Design flexibility** — Control placement and spacing per block
-- **No custom CSS needed** — All controls are in the block editor
-
-## How it works
-
-1. Select a list block in the editor
-2. Open the icon picker in the inspector panel
-3. Choose your icon, adjust placement/color/size
-4. See the result live on the frontend
-
-It provides:
-
-- A block inspector panel with icon picker and placement controls
-- Support for WordPress, Material Design, and custom SVG icons
-- Frontend and editor styling for inside and outside icon placement
-- Server-side rendering that adds styles and markup to list items
+Add icons to the WordPress List block (`core/list`) in both the editor and frontend.
 
 ## Features
 
-- Icon picker with support for multiple icon sets via dynamic imports
-- Placement toggle: inside (inline before text) or outside (aligned marker)
-- Icon size control with multiple units (px, em, rem, vw, vh)
-- Icon color control with theme, default, and user color presets
-- Icon/text gap control with range and unit selector
-- Vertical offset control for fine-tuning icon alignment
-- Inline SVG rendering with WordPress-standard sanitization
-- Fully styled with frontend and editor SCSS
-- Works with the default WordPress list marker style
+- Adds icon controls to `core/list` in the block inspector.
+- Supports icon libraries:
+    - WordPress icons
+    - MUI icons
+    - MUI variant families, including Outlined, Rounded, and Sharp
+    - Custom SVG input
+- Lets you set icon placement inside the list item or outside as an aligned marker.
+- Lets you set icon color, size, gap, and vertical offset per list block.
+- Renders sanitized inline SVG for each list item on the frontend.
+- Ships with GitHub-based plugin updates in the WordPress admin update UI.
 
 ## Requirements
 
-- WordPress 6.7 or later
-- PHP 8.2 or later
-- Node.js 18.12 or later (for local development/build)
+- WordPress 6.9+
+- PHP 8.2+
 
 ## Installation
 
-### As a WordPress plugin
+### Install as a plugin
 
-1. Build production assets (`npm run build`).
-2. Package the plugin (`npm run zip`) or zip the plugin directory.
-3. In WordPress admin, go to Plugins > Add New Plugin > Upload Plugin.
-4. Upload the ZIP and activate Enable List Icons.
+1. Download the latest release zip from GitHub releases.
+2. In WordPress admin, go to Plugins -> Add New Plugin -> Upload Plugin.
+3. Upload the zip and activate Enable List Icons.
 
-### As a Composer dependency
+### Install via Composer (library usage)
 
-1. Require the package from your consuming plugin or theme.
-2. Ensure Composer autoloading is active.
-3. Instantiate and hook the plugin class in your bootstrap:
+If you are embedding this into your own project:
+
+```bash
+composer require bmd/enable-list-icons
+```
+
+Then bootstrap:
 
 ```php
-<?php
+use Bmd\EnableListIcons\Plugin;
 
-use Bmd\EnableListIcons;
+$dependency_url  = plugin_dir_url( __FILE__ ) . 'vendor/bmd/enable-list-icons/';
+$dependency_path = plugin_dir_path( __FILE__ ) . 'vendor/bmd/enable-list-icons/';
 
-$plugin = new EnableListIcons(
-    plugin_dir_url( __FILE__ ),
-    plugin_dir_path( __FILE__ )
+$plugin = new Plugin(
+    $dependency_url,
+    $dependency_path
 );
 
 $plugin->mount();
 ```
 
-## Icon Selection
+The `Plugin` constructor expects the URL and filesystem path to the Enable List Icons dependency root, not the file where you call it. For example, pass `/path/to/vendor/bmd/enable-list-icons/` and the matching public URL for that directory.
 
-The icon picker loads icon sets dynamically. Currently supported:
+## Usage
 
-- **WordPress Icons** — Default WordPress icon set (`@wordpress/icons`)
-- **Material Design Icons** — MUI Material Icons via `@10up/block-components`
+1. Add a List block.
+2. Open the block sidebar.
+3. Open the Icon panel.
+4. Choose an icon source (WordPress, MUI, or Custom SVG).
+5. Adjust icon placement, color, size, gap, and vertical offset.
+6. Save and view the post.
+
+## Custom Icon Families
+
+Developers can add static JSON icon families with the `enable_list_icons_icon_families` filter. Each JSON file should contain an array of picker-compatible icon objects with `name`, `label`, and `source` properties.
+
+```php
+add_filter( 'enable_list_icons_icon_families', function ( $families ) {
+    $families['brand-icons'] = array(
+        'label' => 'Brand Icons',
+        'url'   => plugin_dir_url( __FILE__ ) . 'icons/brand-icons.json',
+    );
+
+    return $families;
+} );
+```
 
 ## Icon Placement
 
-### Inside (Inline)
+### Inside
 
-Icon appears inline before the list item text. The list maintains its normal vertical flow — text wraps under the icon if it's wide.
+The icon appears inline before each list item text. This is useful when the icon should feel like part of the content flow.
 
-- Icon size affects the inline space taken
-- Vertical offset lets you fine-tune inline alignment
+### Outside
 
-### Outside (Aligned)
+The icon appears in reserved space beside each list item. This is useful for aligned visual markers and larger icons.
 
-Icon appears in reserved space to the left of the text.
+## Updates
 
-- Text and inline formatting stay in normal flow
-- Vertical offset control lets you fine-tune alignment
-- Useful for larger icons that shouldn't wrap text
+This plugin is distributed through GitHub releases (not WordPress.org). The plugin includes a scoped GitHub updater so WordPress can detect and apply new versions from this repository.
 
 ## Changelog
 
+### 0.3.0
+
+- Refined the PHP plugin architecture around a dedicated bootstrapper, plugin service, and utility helper.
+- Updated Composer autoloading for the new `Bmd\EnableListIcons` namespace structure.
+- Added JSON icon family loading with support for WordPress, MUI, MUI Outlined, MUI Rounded, and MUI Sharp families.
+- Added separate GitHub Actions lint workflows for CSS, JS, and PHP.
+- Added a WordPress Playground blueprint and demo list content.
+- Updated release packaging to include built assets and production Composer files.
+
 ### 0.2.0
 
-- Add toggle-to-deselect behavior for icon picker — clicking the active icon now clears the selection
-- Add dedicated "Icon Styles" panel grouping placement, size, gap, and vertical offset controls
-- Improve unit/range control layout with a shared label and stacked input + slider
-- Fix null handling for icon attributes throughout (`IconValue` properties now nullable)
-- Fix icon outside placement removing excess left padding on list items
-- Remove unused `IconPositionControl` component
+- Added toggle-to-deselect behavior for the icon picker.
+- Added a dedicated "Icon Styles" panel grouping placement, size, gap, and vertical offset controls.
+- Improved unit/range control layout with a shared label and stacked input plus slider.
+- Fixed null handling for icon attributes throughout (`IconValue` properties now nullable).
+- Fixed icon outside placement removing excess left padding on list items.
 
 ### 0.1.0
 
-- Initial release as Enable List Icons
-- Full icon picker with WordPress and MUI icon sets
-- Inside/outside placement toggle
-- Icon color, size, gap, and vertical offset controls
-- Outside placement keeps list item text and inline formatting in normal flow
-- Server-side render filter for `core/list` block
-- Scoped GitHub updater via `wpify/scoper`
-- Comprehensive PHPUnit test suite
-- GitHub Actions CI workflow
-
-## License
-
-GPL-2.0-or-later. See https://www.gnu.org/licenses/gpl-2.0.html.
+- Initial release as Enable List Icons.
+- Added icon picker with WordPress and MUI icon sets.
+- Added inside/outside placement toggle.
+- Added icon color, size, gap, and vertical offset controls.
+- Added server-side render filter for `core/list`.
+- Added scoped GitHub updater via `wpify/scoper`.

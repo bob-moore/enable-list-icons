@@ -7,11 +7,11 @@
 
 namespace Bmd\Tests;
 
-use Bmd\EnableListIcons;
+use Bmd\EnableListIcons\Plugin;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Bmd\EnableListIcons
+ * @covers \Bmd\EnableListIcons\Plugin
  */
 class EnableListIconsTest extends TestCase
 {
@@ -27,7 +27,7 @@ class EnableListIconsTest extends TestCase
 		$plugin = new class(
 			'https://example.test/wp-content/plugins/enable-list-icons',
 			'/var/www/html/wp-content/plugins/enable-list-icons'
-		) extends EnableListIcons {
+		) extends Plugin {
 			public function publicUrl(): string
 			{
 				return $this->url;
@@ -45,7 +45,7 @@ class EnableListIconsTest extends TestCase
 
 	public function test_mount_registers_expected_hooks(): void
 	{
-		$plugin = new EnableListIcons( 'https://example.test/plugin/', '/var/www/plugin/' );
+		$plugin = new Plugin( 'https://example.test/plugin/', '/var/www/plugin/' );
 		$plugin->mount();
 
 		$this->assertContains(
@@ -64,7 +64,7 @@ class EnableListIconsTest extends TestCase
 
 	public function test_render_block_list_returns_original_without_icon_attribute(): void
 	{
-		$plugin = new EnableListIcons( 'https://example.test/plugin/', '/var/www/plugin/' );
+		$plugin = new Plugin( 'https://example.test/plugin/', '/var/www/plugin/' );
 		$html   = '<ul class="wp-block-list"><li>Item</li></ul>';
 
 		$this->assertSame( $html, $plugin->renderBlockList( $html, [ 'attrs' => [] ] ) );
@@ -72,7 +72,7 @@ class EnableListIconsTest extends TestCase
 
 	public function test_render_block_list_adds_icon_span_classes_and_styles(): void
 	{
-		$plugin = new EnableListIcons( 'https://example.test/plugin/', '/var/www/plugin/' );
+		$plugin = new Plugin( 'https://example.test/plugin/', '/var/www/plugin/' );
 		$html   = '<ul class="wp-block-list"><li>Alpha</li><li>Beta</li></ul>';
 		$block  = [
 			'attrs' => [
@@ -101,7 +101,7 @@ class EnableListIconsTest extends TestCase
 
 	public function test_render_block_list_defaults_to_outside_when_attribute_missing(): void
 	{
-		$plugin = new EnableListIcons( 'https://example.test/plugin/', '/var/www/plugin/' );
+		$plugin = new Plugin( 'https://example.test/plugin/', '/var/www/plugin/' );
 		$html   = '<ul class="wp-block-list"><li>Item</li></ul>';
 		$block  = [
 			'attrs' => [

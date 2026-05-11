@@ -51,6 +51,18 @@ if ( ! function_exists( 'sanitize_text_field' ) ) {
 	}
 }
 
+if ( ! function_exists( 'sanitize_key' ) ) {
+	function sanitize_key( $key ) {
+		return strtolower( preg_replace( '/[^a-z0-9_\-]/', '', (string) $key ) );
+	}
+}
+
+if ( ! function_exists( '__' ) ) {
+	function __( $text, $domain = 'default' ) {
+		return (string) $text;
+	}
+}
+
 if ( ! function_exists( 'wp_kses' ) ) {
 	function wp_kses( $string, $allowed_html = [] ) {
 		return (string) $string;
