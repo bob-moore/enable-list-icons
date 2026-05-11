@@ -32,6 +32,9 @@ jobs:
       - name: Configure PHPCS standards
         run: ./vendor/bin/phpcs --config-set installed_paths ../../phpcsstandards/phpcsextra,../../phpcsstandards/phpcsutils,../../wp-coding-standards/wpcs
 
+      - name: Install scoped dependencies
+        run: composer run wpify:install
+
       - name: Check syntax
         run: find enable-list-icons.php inc scripts -name '*.php' -print0 | xargs -0 -n1 php -l
 
